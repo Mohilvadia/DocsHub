@@ -5,30 +5,31 @@
     android:layout_height="match_parent"
 
     android:background="@color/splashscreenbackground">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
         android:gravity="center"
-        >
+        android:orientation="horizontal">
 
-        <TextView
+       <TextView
             android:id="@+id/Doc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsmedium"
             android:text="Doctor"
             android:textColor="#ffffffff"
-            android:textSize="40sp"
 
-            android:fontFamily="@font/poppinsmedium"/>
+            android:textSize="40sp" />
+
         <TextView
             android:id="@+id/Hub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/poppinslight"
             android:text="hub"
             android:textColor="#ffffffff"
-            android:textSize="40sp"
-            android:fontFamily="@font/poppinslight"
-            android:layout_centerVertical="true" />
+            android:textSize="40sp" />
     </LinearLayout>
 </RelativeLayout>
