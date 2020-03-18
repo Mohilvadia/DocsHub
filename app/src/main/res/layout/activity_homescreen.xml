@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".homescreen">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/navbutton" />
+
+            <TextView
+                android:id="@+id/Doc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Doctor"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="viewEnd"
+                android:textColor="#ffffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/Hub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/poppinslight"
+                android:text="hub"
+                android:layout_weight="3"
+                android:textColor="#ffffffff"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+
+                android:src="@mipmap/notification" />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/poppins"
+                android:paddingLeft="38dp"
+                android:text="Hello User,"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:paddingLeft="38dp"
+                android:text="How can we help you?"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_marginHorizontal="35dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:paddingTop="50dp"
+                android:weightSum="10">
+
+                <ImageView
+                    android:layout_weight="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/finddoc1"
+                    android:layout_gravity="left"></ImageView>
+
+                <ImageView
+                    android:layout_weight="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:src="@mipmap/findhos"></ImageView>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginHorizontal="35dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:weightSum="10">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/appoint"
+                    android:layout_weight="5"></ImageView>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_weight="5"
+                    android:src="@mipmap/department"></ImageView>
+            </TableRow>
+        </TableLayout>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:paddingTop="10dp"
+            android:layout_gravity="bottom"
+            app:cardUseCompatPadding="true">
+
+            <ImageView
+                android:layout_width="71dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@mipmap/home">
+
+            </ImageView>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:src="@mipmap/search"></ImageView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/appointment"
+                android:layout_gravity="right"></ImageView>
+        </androidx.cardview.widget.CardView>
+
+</FrameLayout>
+    </LinearLayout>
+</LinearLayout>
