@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="thesevenitsolutions.com.docshub">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -11,18 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".department" android:theme="@style/AppTheme3">
+        </activity>
+        <activity
+            android:name=".homescreen"
+            android:theme="@style/AppTheme3">
+        </activity>
+        <activity android:name=".finddoctor" android:theme="@style/AppTheme3"></activity>
+        <activity android:name=".findhospital" android:theme="@style/AppTheme3"></activity>
         <activity android:name=".MainActivity" />
         <activity
             android:name=".splashscreen"
-            android:theme="@style/AppTheme1">
-
-        </activity>
-        <activity
-            android:name=".login"
-            android:theme="@style/AppTheme1">
-
-        </activity>
-        <activity android:name=".otp"
             android:theme="@style/AppTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +31,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".login"
+            android:theme="@style/AppTheme1">
+        </activity>
+        <activity
+            android:name=".otp"
+            android:theme="@style/AppTheme1">
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

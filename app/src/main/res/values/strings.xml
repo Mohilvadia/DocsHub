@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">DocsHub</string>
     <string name="doctorhub">DoctorHub</string>
+    <string name="mobileerror">Enter a valid mobile</string>
+    <string name="passworderror">Enter valid passwoord</string>
+    <string name="nameerror">Enter a valid name</string>
+    <string name="emailerror">Enter a valid email</string>
+    <string name="dateerror">Enter a valid date</string>
+    <string name="ageerror">Enter a valid age</string>
+    <string-array name="city">
+        <item>Bhavnagar</item>
+        <item>Ahmedabad</item>
+        <item>Surat</item>
+        <item>Rajkot</item>
+        <item>Bhuj</item>
+        <item>Jamnagar</item>
+    </string-array>
 </resources>

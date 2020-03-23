@@ -55,26 +55,27 @@ with 4 -digit verification code (OTP) "
 
 </LinearLayout>
     <TextView
-
+        android:id="@+id/resendotp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Did not Receive the Code?"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:paddingBottom="7dp"
         android:alpha=".5"
         android:layout_centerInParent="true"
-        android:layout_above="@+id/resendotp"
+        android:layout_above="@+id/btnsubmit"
         android:layout_marginBottom="5dp"
         />
     <Button
-    android:id="@+id/resendotp"
+    android:id="@+id/btnsubmit"
     style="@style/ShapeAppearanceOverlay.MaterialComponents.TextInputLayout.FilledBox"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:backgroundTint="@color/white"
     android:background="@drawable/button_background"
     android:fontFamily="@font/poppinsmedium"
-    android:text="Resend OTP"
+    android:text="submit"
     android:textColor="@color/splashscreenbackground"
     android:textSize="18sp"
         android:layout_marginHorizontal="30dp"

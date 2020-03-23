@@ -7,9 +7,9 @@
     android:orientation="vertical"
     tools:context=".homescreen">
 
-    <androidx.appcompat.widget.Toolbar
+    <Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary">
 
         <LinearLayout
@@ -21,7 +21,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/navbutton" />
 
@@ -32,16 +31,17 @@
                 android:layout_weight="3"
                 android:fontFamily="@font/poppinsmedium"
                 android:text="Doctor"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:textAlignment="viewEnd"
                 android:textColor="#ffffffff"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                tools:ignore="RtlCompat" />
 
             <TextView
                 android:id="@+id/Hub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal|center_vertical"
                 android:fontFamily="@font/poppinslight"
                 android:text="hub"
                 android:layout_weight="3"
@@ -53,10 +53,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-
+                android:layout_marginHorizontal="15dp"
                 android:src="@mipmap/notification" />
         </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
+    </Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,23 +66,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="38dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins"
-                android:paddingLeft="38dp"
                 android:text="Hello User,"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:paddingLeft="38dp"
                 android:text="How can we help you?"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -92,40 +91,44 @@
             android:layout_height="wrap_content">
 
             <TableRow
-                android:layout_marginHorizontal="35dp"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
                 android:paddingTop="50dp"
                 android:weightSum="10">
 
                 <ImageView
-                    android:layout_weight="5"
+                    android:id="@+id/imgfinddoc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/finddoc1"
-                    android:layout_gravity="left"></ImageView>
+                    android:layout_gravity="left"
+                    android:layout_weight="5"
+                    android:src="@mipmap/finddoc1"></ImageView>
 
                 <ImageView
-                    android:layout_weight="5"
+                    android:id="@+id/imgfindhos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="right"
+                    android:layout_weight="5"
                     android:src="@mipmap/findhos"></ImageView>
             </TableRow>
 
             <TableRow
-                android:layout_marginHorizontal="35dp"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
                 android:weightSum="10">
 
                 <ImageView
+                    android:id="@+id/imgappoint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/appoint"
-                    android:layout_weight="5"></ImageView>
+                    android:layout_weight="5"
+                    android:src="@mipmap/appoint"></ImageView>
 
                 <ImageView
+                    android:id="@+id/imgdepartment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
@@ -133,38 +136,16 @@
                     android:src="@mipmap/department"></ImageView>
             </TableRow>
         </TableLayout>
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
+        <com.ismaeldivita.chipnavigation.ChipNavigationBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="5dp"
-            android:paddingTop="10dp"
             android:layout_gravity="bottom"
-            app:cardUseCompatPadding="true">
-
-            <ImageView
-                android:layout_width="71dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:src="@mipmap/home">
-
-            </ImageView>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:src="@mipmap/search"></ImageView>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@mipmap/appointment"
-                android:layout_gravity="right"></ImageView>
-        </androidx.cardview.widget.CardView>
-
-</FrameLayout>
+            android:background="@color/white"
+            app:cnb_menuResource="@menu/tabs" />
+    </FrameLayout>
     </LinearLayout>
 </LinearLayout>

@@ -55,11 +55,13 @@
 
     <ImageView
         android:id="@+id/docprofile"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/lin4"
-        android:src="@mipmap/docprofile"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/image_border"
         android:paddingTop="40dp"
         />
     <TextView
