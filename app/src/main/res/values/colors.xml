@@ -3,6 +3,7 @@
     <color name="colorPrimary">#1089ff</color>
     <color name="colorPrimaryDark">#0d6ecc</color>
     <color name="colorAccent">#50d890</color>
+    <color name="colorAccent">#1089ff</color>
     <color name="splashscreenbackground">#1089ff</color>
     <color name="white">#ffffff</color>
     <color name="signup">#3f3f3f</color>

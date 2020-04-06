@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/crdproduct"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp" app:cardUseCompatPadding="true"
+        app:cardElevation="5dp"
+        android:backgroundTint="@color/splashscreenbackground">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/txtdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date: "
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                />
+            <TextView
+                android:layout_alignParentEnd="true"
+                android:id="@+id/appointmenttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:45"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                />
+            <TextView
+                android:id="@+id/appointmentdate"
+                android:layout_toRightOf="@+id/txtdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins"
+                android:text="10-10-2020"/>
+            <TextView
+                android:id="@+id/txtpatientname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Patient Name: "
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins"
+                android:layout_below="@+id/txtdate"/>
+            <TextView
+                android:id="@+id/patientname"
+                android:layout_toRightOf="@+id/txtpatientname"
+                android:layout_below="@+id/txtdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                android:text="Nikhil gohil"/>
+            <TextView
+                android:id="@+id/txtdocname"
+
+                android:layout_below="@+id/txtpatientname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                android:text="Dr. Name: "/>
+            <TextView
+                android:id="@+id/appointmentdocname"
+                android:layout_toRightOf="@+id/txtdocname"
+                android:layout_below="@+id/txtpatientname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                android:text="gohil nikhil"/>
+            <TextView
+                android:id="@+id/txtremarks"
+                android:layout_below="@+id/txtdocname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                android:text="Remarks: "/>
+            <TextView
+                android:id="@+id/remarks"
+                android:layout_toRightOf="@+id/txtremarks"
+                android:layout_below="@+id/txtdocname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                android:text="cold fever and done test for corona virus."/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

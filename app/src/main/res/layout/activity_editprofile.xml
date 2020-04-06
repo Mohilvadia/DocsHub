@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".settings">
+    <Toolbar
+        android:id="@+id/toolbar"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/splashscreenbackground">
+
+        <ImageView
+            android:id="@+id/editprofile_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/otp_back_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="35dp"
+            android:text="Edit profile"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </Toolbar>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/doc"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/frm"
+        android:layout_marginVertical="40dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/frm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"          >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsmedium"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First name"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsmedium"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last name"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsmedium"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsmedium"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsmedium"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppinsmedium"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/username_editprofile"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#3f3f3f"
+                android:alpha=".7"
+                android:textSize="20sp"
+                android:background="@drawable/edittext"/>
+
+            <EditText
+                android:id="@+id/firstname_editprofile"
+                android:singleLine="true"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#3f3f3f"
+                android:alpha=".7"
+                android:background="@drawable/edittext"/>
+            <EditText
+                android:id="@+id/lastname_editprofile"
+                android:singleLine="true"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#3f3f3f"
+                android:alpha=".7"
+                android:background="@drawable/edittext"/>
+            <EditText
+                android:maxLength="10"
+                android:id="@+id/phonenumber_editprofile"
+                android:singleLine="true"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#3f3f3f"
+                android:alpha=".7"
+                android:background="@drawable/edittext"/>
+
+            <EditText
+                android:id="@+id/email_editprofile"
+                android:singleLine="true"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#3f3f3f"
+                android:alpha=".7"
+                android:background="@drawable/edittext"/>
+
+
+
+            <EditText
+                android:id="@+id/address_editprofile"
+                android:minLines="3"
+                android:maxLines="3"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#3f3f3f"
+                android:alpha=".7"
+                android:background="@drawable/edittext"/>
+
+        </LinearLayout>
+
+</LinearLayout>
+    <Button
+
+        android:id="@+id/save_editprofile"
+        style="@style/ShapeAppearanceOverlay.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/poppinsmedium"
+        android:text="save"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_below="@id/frm"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp"/>
+
+</RelativeLayout>
