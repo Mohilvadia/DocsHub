@@ -8,11 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme1" parent="Theme.AppCompat.NoActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">
 
         <item name="colorPrimaryDark">@color/splashscreenbackground</item>
-
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme3" parent="Theme.AppCompat.Light.NoActionBar">
@@ -20,13 +20,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="AppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorAccent">@color/splashscreenbackground</item>
-        <item name="colorPrimaryDark">@color/splashscreenbackground</item>
-
     </style>
 
     <style name="RatingBar" parent="Theme.AppCompat">
@@ -43,9 +36,4 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-     <style name="nav_fonts">
-         <item name="android:textSize">18sp</item>
-         <item name="fontFamily">@font/poppinslight</item>
-         <item name="alpha">.5</item>
-     </style>
 </resources>

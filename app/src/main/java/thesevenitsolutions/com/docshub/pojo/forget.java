@@ -3,7 +3,7 @@ package thesevenitsolutions.com.docshub.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class user_signup {
+public class forget {
     @SerializedName("status")
     @Expose
     private boolean status;
@@ -13,28 +13,26 @@ public class user_signup {
     @SerializedName("message")
     @Expose
     private String message;
-
+    @SerializedName("otp")
+    @Expose
+    private String otp;
     @SerializedName("data")
     @Expose
-    private user data;
-    @SerializedName("error")
-    @Expose
-    private user error;
+    private forgotpassword data;
 
-    public user_signup(boolean status, Integer code, String message, user data,user error) {
+    public forget(boolean status, Integer code, String message, forgotpassword data) {
         this.status = status;
         this.code = code;
         this.message = message;
         this.data = data;
-        this.error=error;
     }
 
-    public user getError() {
-        return error;
+    public String getOtp() {
+        return otp;
     }
 
-    public void setError(user error) {
-        this.error = error;
+    public void setOtp(String otp) {
+        this.otp = otp;
     }
 
     public boolean isStatus() {
@@ -61,11 +59,11 @@ public class user_signup {
         this.message = message;
     }
 
-    public user getData() {
+    public forgotpassword getData() {
         return data;
     }
 
-    public void setData(user data) {
+    public void setData(forgotpassword data) {
         this.data = data;
     }
 }

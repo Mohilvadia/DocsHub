@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +46,11 @@ public class homescreen extends AppCompatActivity {
         setevent();
         navview();
 
-
+        Animation myanim= AnimationUtils.loadAnimation(this,R.anim.fade_in);
+        imgdepartment.startAnimation(myanim);
+        imgappoint.startAnimation(myanim);
+        imghos.startAnimation(myanim);
+        imgdoc.startAnimation(myanim);
     }
 
     private void navview() {
@@ -102,6 +108,7 @@ public class homescreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent finddocintent=new Intent(ctx,finddoctor.class);
                 startActivity(finddocintent);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
             }
         });
         imghos.setOnClickListener(new View.OnClickListener() {
@@ -131,58 +138,61 @@ public class homescreen extends AppCompatActivity {
     }
 
     private void logout() {
+        if (prefrence.getInstance(ctx).isLoggedIn()){
 
-            apiInterface service = apIclient.getClient().create(apiInterface.class);
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctx);
+            alertDialogBuilder.setMessage("Are you sure,You want to Logout?");
+            alertDialogBuilder.setPositiveButton("OK",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
 
-            Call<user_signup> call = service.logout(prefrence.getInstance(ctx).getTOken());
+                            apiInterface service = apIclient.getClient().create(apiInterface.class);
 
-            call.enqueue(new Callback<user_signup>() {
-                @Override
-                public void onResponse(Call<user_signup> call, Response<user_signup> response) {
-                    if (response.body().getError() != null) {
-                        Log.d("Logout", response.body().getError().toString());
-                    }
-                    else {
-                        if (prefrence.getInstance(ctx).isLoggedIn()){
+                            Call<user_signup> call = service.logout("Bearer "+prefrence.getInstance(ctx).getTOken());
 
-                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctx);
-                            alertDialogBuilder.setMessage("Are you sure,You want to Logout?");
-                            alertDialogBuilder.setPositiveButton("OK",
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface arg0, int arg1) {
-                                            startActivity(new Intent(ctx, login.class));
-                                            finish();
-                                            Toast.makeText(ctx, "LOGOUT Successfully!", Toast.LENGTH_LONG).show();
-                                            prefrence.getInstance(ctx).logout();
-                                        }
-                                    });
-
-                            alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+                            call.enqueue(new Callback<user_signup>() {
                                 @Override
-                                public void onClick(DialogInterface dialog, int which) {
+                                public void onResponse(Call<user_signup> call, Response<user_signup> response) {
+                                    if (response.body().getError() != null) {
+                                        Log.d("Logout", response.body().getError().toString());
+                                    }
+                                    else {
+                                        startActivity(new Intent(ctx, login.class));
+                                        finish();
+                                        Toast.makeText(ctx, "LOGOUT Successfully!", Toast.LENGTH_LONG).show();
+                                        prefrence.getInstance(ctx).logout();
+                                    }
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<user_signup> call, Throwable t) {
+                                    Toast.makeText(ctx,t.getMessage(),Toast.LENGTH_SHORT).show();
 
                                 }
                             });
 
-                            AlertDialog alertDialog = alertDialogBuilder.create();
-                            alertDialog.show();
+                                                   }
+                    });
 
-                    }
-                        else{
-                            Toast.makeText(ctx, "Please LogIn First", Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-
-                }
-
+            alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
                 @Override
-                public void onFailure(Call<user_signup> call, Throwable t) {
+                public void onClick(DialogInterface dialog, int which) {
 
                 }
             });
-    }
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+
+        }
+        else{
+            Toast.makeText(ctx, "Please LogIn First", Toast.LENGTH_LONG).show();
+
+        }
+
+               }
 
 
     private void allocatememory() {

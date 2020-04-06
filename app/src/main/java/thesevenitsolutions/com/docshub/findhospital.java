@@ -79,7 +79,7 @@ public class findhospital extends AppCompatActivity{
                 String spnn=spn.getSelectedItem().toString();
                 apiInterface service=apIclient.getClient().create(apiInterface.class);
                 hospital hospital=new hospital(spnn);
-                Call<hospitallist> call=service.gethospital(prefrence.getInstance(ctx).getTOken(),hospital.getCity());
+                Call<hospitallist> call=service.gethospital("Bearer "+prefrence.getInstance(ctx).getTOken(),hospital.getCity());
 
                 call.enqueue(new Callback<hospitallist>() {
                     @Override
@@ -94,7 +94,7 @@ public class findhospital extends AppCompatActivity{
                                     JSONObject obj=new JSONObject(response.toString());
                                     JSONArray jsonobjsect=obj.getJSONArray(response.body().getData().toString());
                                     int totall=jsonobjsect.length();
-                                    for(int i=1;i<=totall;i++){
+                                    for(int i=0;i<=totall;i++){
                                         JSONObject object=jsonobjsect.getJSONObject(i);
                                         name=object.getString("name");
                                         department=object.getString("department");
@@ -106,11 +106,9 @@ public class findhospital extends AppCompatActivity{
                                     e.printStackTrace();
                                 }
                                 hospitalAdapter adapter=new hospitalAdapter(ctx,hospitalArrayList);
-                                redhos.setAdapter(adapter);
                                 redhos.setItemAnimator(new DefaultItemAnimator());
+                                redhos.setAdapter(adapter);
                                 redhos.setLayoutManager(new GridLayoutManager(ctx,1));
-
-
                             }
                         }
                     }

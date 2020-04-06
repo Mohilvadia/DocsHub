@@ -26,11 +26,24 @@ public class verifyotp extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent verify=new Intent(ctx,newpassword.class);
-                startActivity(verify);
-
+                if(validateinput()){
+                    verfication();
+                }
             }
         });
+    }
+
+    private void verfication() {
+    }
+
+    private boolean validateinput() {
+        boolean isvalid=true;
+        if(otp_verify.getOTP()==null){
+
+        }
+
+        return isvalid;
+
     }
 
     private void allocatememory() {

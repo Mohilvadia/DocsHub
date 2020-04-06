@@ -4,9 +4,9 @@ public class forgotpassword {
     private String userid,otp,new_password,email;
 
     public forgotpassword(String email ,String otp, String new_password) {
+        this.email = email;
         this.otp = otp;
         this.new_password = new_password;
-        this.email = email;
     }
 
     public forgotpassword(String userid) {

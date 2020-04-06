@@ -1,6 +1,6 @@
 package thesevenitsolutions.com.docshub;
 
-  import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -68,8 +68,8 @@ public class login extends AppCompatActivity {
         progressDialog.setMessage("ONE MOMENT PLEASE");
         progressDialog.show();
 
-        String userName=usernamelog.toString().trim();
-        String password=passwordlog.toString().trim();
+        String userName=usernamelog.getText().toString().trim();
+        String password=passwordlog.getText().toString().trim();
 
         apiInterface service = apIclient.getClient().create(apiInterface.class);
 
@@ -114,6 +114,7 @@ public class login extends AppCompatActivity {
         passwordlog=findViewById(R.id.passwordlog);
         btnforgotpassword=findViewById(R.id.btnforgotpass);
     }
+
     private boolean validateinput() {
         String password = passwordlog.toString().trim();
         String username = usernamelog.toString().trim();

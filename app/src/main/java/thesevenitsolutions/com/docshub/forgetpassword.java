@@ -1,6 +1,7 @@
 package thesevenitsolutions.com.docshub;
 
 import androidx.appcompat.app.AppCompatActivity;
+import thesevenitsolutions.com.docshub.pojo.forget;
 import thesevenitsolutions.com.docshub.pojo.forgotpassword;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +25,6 @@ public class forgetpassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgetpassword);
-
         allocatememory();
         setevent();
     }
@@ -52,34 +52,39 @@ public class forgetpassword extends AppCompatActivity {
 
         forgotpassword forgot= new forgotpassword(emailpass);
 
-        Call<forgotpassword>call = service.sendotp(prefrence.getInstance(ctx).getTOken(),forgot.getUserid());
+        Call<forget>call = service.sendotp("Bearer "+prefrence.getInstance(ctx).getTOken(),forgot.getUserid());
 
-        call.enqueue(new Callback<forgotpassword>() {
+        call.enqueue(new Callback<forget>() {
             @Override
-            public void onResponse(Call<forgotpassword> call, Response<forgotpassword> response) {
-                progressDialog.dismiss();
+            public void onResponse(Call<forget> call, Response<forget> response) {
+
                 if(response.body()==null){
 
-                    Toast.makeText(ctx,"There is something wrong!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ctx,"something went wrong!!",Toast.LENGTH_LONG).show();
                 }
                 else {
+                    if (response.body().getOtp() == null) {
+                        Toast.makeText(ctx, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        startActivity(new Intent(ctx,verifyotp.class));
+                    }
+
                 }
             }
 
             @Override
-            public void onFailure(Call<forgotpassword> call, Throwable t) {
-                progressDialog.dismiss();
+            public void onFailure(Call<forget> call, Throwable t) {
+                    Toast.makeText(ctx,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
-
     }
 
     private void allocatememory() {
         sendotp=findViewById(R.id.btnsendotp);
         email=findViewById(R.id.email);
     }
-    public boolean validateinput()
-    {
+    public boolean validateinput(){
         boolean isvalid=true;
         if(email.getText().toString().isEmpty()) {
             email.setError("Email can't be empty!");

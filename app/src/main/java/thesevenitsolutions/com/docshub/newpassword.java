@@ -1,16 +1,17 @@
 package thesevenitsolutions.com.docshub;
 
 import androidx.appcompat.app.AppCompatActivity;
+import in.aabhasjindal.otptextview.OtpTextView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import thesevenitsolutions.com.docshub.pojo.user;
-import thesevenitsolutions.com.docshub.pojo.user_signup;
+
+import thesevenitsolutions.com.docshub.pojo.forget;
+import thesevenitsolutions.com.docshub.pojo.forgotpassword;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +19,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class newpassword extends AppCompatActivity {
-    EditText newpassword,confirm_password,oldpassword;
+    EditText newpassword,email;
     Button submitpass;
+    OtpTextView otp;
     Context ctx=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,10 @@ public class newpassword extends AppCompatActivity {
 
     private void allocatememory() {
 
-        newpassword=findViewById(R.id.newpassword);
-        confirm_password=findViewById(R.id.confirm_password);
+        newpassword=findViewById(R.id.new_password);
+        email=findViewById(R.id.email);
         submitpass=findViewById(R.id.submitpass);
-        oldpassword=findViewById(R.id.oldpassword);
+        otp=findViewById(R.id.otp_verify);
     }
 
     private void setevent() {
@@ -54,49 +56,59 @@ public class newpassword extends AppCompatActivity {
         progressDialog.setMessage("ONE MOMENT PLEASE");
         progressDialog.show();
 
-        String oldpass=oldpassword.getText().toString().trim();
         String newpass=newpassword.getText().toString().trim();
-        String conpass=confirm_password.getText().toString().trim();
+        String email1=email.getText().toString().trim();
+        String otp1=otp.getOTP();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(common.getbaseurl())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        apiInterface service = retrofit.create(apiInterface.class);
-        user user= new user(oldpass,newpass,conpass);
-        Call<user_signup> call = service.changepassword(
-                user.getPassword(),
-                user.getNew_password(),
-                user.getConfirm_password());
-        call.enqueue(new Callback<user_signup>() {
+        apiInterface service = apIclient.getClient().create(apiInterface.class);
+
+        forgotpassword forgetpassword=new forgotpassword(email1,otp1,newpass);
+
+        Call<forget> call = service.resetpassword(prefrence.getInstance(ctx).getTOken(),forgetpassword.getEmail(),forgetpassword.getOtp(),forgetpassword.getNew_password());
+
+        call.enqueue(new Callback<forget>() {
             @Override
-            public void onResponse(Call<user_signup> call, Response<user_signup> response) {
-                progressDialog.dismiss();
-                assert response.body() != null;
-                if(response.body().isStatus()){
-                    Toast.makeText(ctx,response.body().getMessage(),Toast.LENGTH_LONG).show();
+            public void onResponse(Call<forget> call, Response<forget> response) {
+                if(response.body()==null){
+                    Toast.makeText(ctx,"Something Went Wrong!",Toast.LENGTH_LONG).show();
                 }
-                else
-                    Toast.makeText(ctx,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                else{
+                    if(response.body().getMessage().equals("One Time Password Is Invalid")){
+                        Toast.makeText(ctx,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                    else if(response.body().getMessage().equals("Email Is Invalid")){
+                        Toast.makeText(ctx,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        Toast.makeText(ctx,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(ctx,homescreen.class));
+                    }
+                }
             }
 
             @Override
-            public void onFailure(Call<user_signup> call, Throwable t) {
-                Toast.makeText(ctx,"No Response From The Server",Toast.LENGTH_LONG).show();
+            public void onFailure(Call<forget> call, Throwable t) {
+
             }
         });
     }
 
     private boolean validate(){
+        String valemail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         boolean temp=true;
-        String pass=newpassword.getText().toString().trim();
-        String cpass=confirm_password.getText().toString().trim();
-         if(!pass.matches(cpass)){
-            newpassword.setError("Password Does Not Match");
-        temp=false;
+         if(newpassword.getText().toString().trim().length()<8){
+            newpassword.setError("Password must be 8 Character Long");
+                temp=false;
         }
-         else if(oldpassword.length()<8)
-             oldpassword.setError("Password Should be 8 Character Long");
+         else if(email.getText().toString().trim().matches(valemail)) {
+             email.setError("Please Enter valid Email Address");
+            temp=false;
+         }
+         else if(otp.getOTP().length()<6)
+         {
+             submitpass.setEnabled(false);
+                temp =false;
+         }
         return temp;
     }
 }

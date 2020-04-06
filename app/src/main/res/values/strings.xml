@@ -23,20 +23,9 @@
     <string name="health_blog">Health Blog</string>
     <string name="title_activity_settings">Settings</string>
     <string name="messages_header">Messages</string>
+    <string name="emaillconfirm">Enter the verification code we just sent you on your email address</string>
 
-    <!-- Preference Titles -->
-    <string name="sync_header">Sync</string>
-    <string name="signature_title">Your signature</string>
 
-    <!-- Messages Preferences -->
-    <string name="reply_title">Themes</string>
-    <string name="sync_title">Sync email</string>
-
-    <!-- Sync Preferences -->
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string-array name="city">
         <item>Ahmedabad</item>
         <item>Bhavnagar</item>
